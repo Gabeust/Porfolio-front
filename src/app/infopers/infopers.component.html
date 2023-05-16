@@ -1,0 +1,22 @@
+<div class="perfil">
+  <div class="row">
+    <div class="col-lg-5">
+      <img src={{persona.img}} alt="foto de perfil">
+      <br>
+      
+      <h3> {{persona.nombre}} {{persona.apellido}} </h3>
+    </div>
+ 
+  <div class="col-lg-6" id="desc">
+    <p><strong> Acerca de mi</strong></p>
+    <P> {{persona.descripcion}}<P>
+      <button type="button" class="btn btn-primary" routerLink="/editinfo/{{persona.id}}" *ngIf="isLogged">
+        <i class="fa-regular fa-pen-to-square"></i>
+      </button>
+  </div>
+  <br>
+ 
+</div>
+
+
+

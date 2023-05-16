@@ -1,0 +1,56 @@
+<app-paraform></app-paraform>
+<div *ngIf="persona">
+  <div id="form-main">
+    <div id="form-div">
+
+      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+
+        <div id="mensaje" style='color:blue;'>
+          <h4></h4>
+        </div>
+        <div id="mensaje_e" style='color:red;'>
+          <h4></h4>
+        </div>
+        <h2>Editar Informacion.</h2>
+
+
+        <fieldset>
+          <legend>Datos:</legend>
+
+          <div class="form-group" class="col-lg-9">
+            <label for="nombre" class="col-sm-2 col-form-label">Nombre<span class="required-asterisk">*</span></label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="persona.nombre" maxlength="100"
+              pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{3,23}" title="Debe indicar el nombre correctamente" required />
+          </div>
+        
+
+          <div class="form-group col-lg-6">
+            <label for="apellido" class="col-md col-form-label">Apellido<span class="required-asterisk">*</span></label>
+            <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="persona.apellido" required />
+            </div>
+  
+            <div class="form-group col-lg-9">
+              <label for="descripcion" class="col-md-10 col-form-label">Despcripcion<span class="required-asterisk">*</span></label>
+              <textarea name="descripcion" rows="10" length="10000"  [(ngModel)]="persona.descripcion" required></textarea>
+            </div>
+            
+          <div class="form-group" class="col-lg-9">
+            <label for="img" class="col-sm-2 col-form-label">imagen<span class="required-asterisk">*</span></label>
+            <input type="file" class="form-control" id="img" name="img" [(ngModel)]="persona.img" 
+            (change)="uploadImage($event)" accept=".jpeg, .jpg, .png"/>
+          </div>
+
+        </fieldset>
+
+            <div class="form-group" class="col-lg-4">
+              <button type="submit" name="envio" class="btn btn-md btn-warning">Enviar</button>
+              <button type="submit" class="btn btn-md btn-dark" routerLink="/inicio">Cancelar</button>
+            </div>
+    
+      </form>
+    </div>
+  </div>
+
+
+
+

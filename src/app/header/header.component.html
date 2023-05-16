@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="fijo">
+    <div class="container-fluid" >
+          <a class="navbar-brand"><img src="https://www.argentina.gob.ar/sites/default/files/untitled-3-01_2.png"> ARGENTINA PROGRAMA 4.0</a>
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                 </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+            
+        <ul class="navbar-nav ms-auto">
+               
+                <li class="nav-a">
+                    <a class="nav-link" href="/inicio/#certi">Certificaciones</a>
+                </li>
+                <li class="nav-a">
+                    <a class="nav-link" href="/inicio/#expe">Experiencia</a>
+                </li>
+                <li class="nav-a">
+                    <a class="nav-link" href="/inicio/#proyect">Proyectos</a>
+                </li>
+                <li class="nav-a">
+                    <a class="nav-link" href="/inicio/#CONT">Contacto</a>
+                </li>
+              
+            </ul>
+            
+            <button id="switch1" type="button" class="btn-btn" (click)="login()" *ngIf="!isLogged" >Ingresar</button>
+            <button id="switch1" type="button" class="btn-btn" (click)="onLogOut()" *ngIf="isLogged">Cerrar Sesion</button>
+            <button class="switch" id="switch" >
+                <span class="bot"><i class="fas fa-sun"></i> </span>
+                <span class="bot"><i class="fas fa-moon"></i> </span>
+            </button>
+      </div>
+    </div>
+</nav>

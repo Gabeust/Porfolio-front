@@ -1,0 +1,32 @@
+
+<div id="certi">
+   <H2>CERTIFICACIONES.</H2>
+   </div>
+
+<div>
+   <button type="button" class="btn btn-success" routerLink="/nuevacerti" *ngIf="isLogged">
+      Nueva Certificacion
+   </button>
+
+</div>
+<br>
+
+<br>
+<div>
+   <ul>
+      <li *ngFor="let Certificaciones of certificacion">
+
+         <button type="button" class="btn btn-danger" (click)="Delete(Certificaciones.id)" *ngIf="isLogged">
+            <i class="fa-solid fa-trash"></i>
+         </button>
+         <button type="button" class="btn btn-primary" routerLink="/editcerti/{{Certificaciones.id}}" *ngIf="isLogged">
+            <i class="fa-regular fa-pen-to-square"></i>
+         </button>
+         <H4>{{Certificaciones.titulo}}</H4>
+         <h3><strong> {{Certificaciones.institucion}} - {{Certificaciones.anio}} </strong></h3>
+
+         <hr>
+
+      </li>
+   </ul>
+</div>

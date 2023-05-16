@@ -1,0 +1,63 @@
+<app-paraform></app-paraform>
+<div>
+  <div id="form-main">
+    <div id="form-div">
+
+      <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+
+        <div id="mensaje" style='color:blue;'>
+          <h4></h4>
+        </div>
+        <div id="mensaje_e" style='color:red;'>
+          <h4></h4>
+        </div>
+        <h2>Nueva experiencia laboral.</h2>
+
+
+        <fieldset>
+          <legend>Datos:</legend>
+
+          <div class="form-group" class="col-lg-9">
+            <label for="empresa" class="col-sm-2 col-form-label">Empresa<span class="required-asterisk">*</span></label>
+            <input type="text" class="form-control" id="empresa" name="empresa" [(ngModel)]="empresa" maxlength="100"
+              pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{3,23}" title="Debe indicar el nombre de la empresa correctamente" required />
+          </div>
+        
+
+          <div class="form-group col-lg-9">
+            <label for="descripcion" class="col-md-10 col-form-label">Despcripcion de la tarea realizada<span class="required-asterisk">*</span></label>
+            <textarea name="descripcion" rows="10" length="10000"  [(ngModel)]="descripcion" required></textarea>
+           
+          </div>
+
+          <div class="form-group" class="col-lg-7 col-sm-2" >
+            <label for="ingreso" class="col-md-10 col-form-label">Año de ingreso a la empresa<span class="required-asterisk">*</span></label>
+            <input type="number" min="1" max="9999" step="1" class="form-control" id="ingreso" name="ingreso" [(ngModel)]="ingreso" required  (input)="validarAnio()" />
+            <div class="error" [ngClass]="{'has-error': !ingresoValido}">
+             <span *ngIf="!ingresoValido">El año debe tener un máximo de cuatro dígitos.</span>
+            </div>
+          </div>
+
+          <div class="form-group" class="col-lg-7 col-sm-2">
+            <label for="egreso" class="col-md-10 col-form-label">Año de egreso de la empresa<span class="required-asterisk">*</span></label>
+            <input type="number" min="1" max="9999" step="1" class="form-control" id="egreso" name="egreso" [(ngModel)]="egreso"  required  (input)="validarAnioEgreso()" />
+            <div class="error" [ngClass]="{'has-error': !egresoValido}">
+              <span *ngIf="!egresoValido">El año debe tener un máximo de cuatro dígitos y debe ser superior al año de ingreso.</span>
+            </div>
+           
+             
+          </div>
+
+        </fieldset>
+
+            <div class="form-group" class="col-lg-4">
+              <button type="submit" name="envio" class="btn btn-md btn-warning">Enviar</button>
+              <button type="submit" class="btn btn-md btn-dark" routerLink="/inicio">Cancelar</button>
+            </div>
+    
+      </form>
+    </div>
+  </div>
+
+
+

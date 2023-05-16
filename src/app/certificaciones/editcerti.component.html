@@ -1,0 +1,85 @@
+<app-paraform></app-paraform>
+<div>
+  <div id="form-main">
+    <div id="form-div">
+
+      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+
+        <div id="mensaje" style='color:blue;'>
+          <h4></h4>
+        </div>
+        <div id="mensaje_e" style='color:red;'>
+          <h4></h4>
+        </div>
+        <h2>Editar Certificacion.</h2>
+
+
+        <fieldset>
+          <legend>Datos:</legend>
+
+          <div class="form-group" class="col-lg-9">
+            <label for="titulo" class="col-sm-2 col-form-label">Titulo <span class="required-asterisk">*</span></label>
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="certificacion.titulo" maxlength="100"
+              pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{3,23}" title="Debe indicar un titulo correctamente" required />
+          </div>
+
+          <div class="form-group" class="col-lg-9">
+            <label for="institucion" class="col-sm-2 col-form-label">Institucion<span
+                class="required-asterisk">*</span></label>
+            <input type="text" class="form-control" id="institucion" name="institucion" [(ngModel)]="certificacion.institucion"
+              maxlength="50" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{3,23}" title="Debe indicar la institucion correctamente"
+              required />
+          </div>
+          <div class="form-group col-lg-6">
+            <label for="anio" class="col-md col-form-label">Año de certificacion<span class="required-asterisk">*</span></label>
+            <input type="number" min="1" max="9999" step="1" class="form-control" id="año" name="año" [(ngModel)]="certificacion.anio" 
+                   title="Debe indicar año" required (input)="validarAnio()" />
+            <div class="error" [ngClass]="{'has-error': !anioValido}">
+              <span *ngIf="!anioValido">El año debe tener un máximo de cuatro dígitos.</span>
+            </div>
+          </div>
+
+        </fieldset>
+
+            <div class="form-group" class="col-lg-4">
+              <button type="submit" name="envio" class="btn btn-md btn-warning">Enviar</button>
+              <button type="submit" class="btn btn-md btn-dark" routerLink="/inicio">Cancelar</button>
+            </div>
+    
+      </form>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<!-- <div>
+<form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+    <div class="row mb-3">
+      <label for="titulo" class="col-sm-2 col-form-label">Titulo</label>
+        <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="certificacion.titulo" required>
+      </div>
+ 
+    <div class="row mb-3">
+      <label for="institucion" class="col-sm-2 col-form-label">Institucion</label>
+        <input type="text" class="form-control" id="institucion" name="institucion" [(ngModel)]="certificacion.institucion" required>
+   
+    </div>
+    <div class="row mb-3">
+        <label for="anio" class="col-sm-2 col-form-label">Año</label>
+          <input type="text" class="form-control" id="año" name="año" [(ngModel)]="certificacion.anio" required>
+     
+      </div>
+     
+     <button type="submit" class="btn btn-success">Actualizar Certificavion</button>
+     
+     <button type="submit" class="btn btn-secondary"  routerLink="/inicio">Cancelar</button>
+  </form>
+</div> -->

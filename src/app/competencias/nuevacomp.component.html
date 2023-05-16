@@ -1,0 +1,48 @@
+<app-paraform></app-paraform>
+<div>
+  <div id="form-main">
+    <div id="form-div">
+
+      <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+
+        <div id="mensaje" style='color:blue;'>
+          <h4></h4>
+        </div>
+        <div id="mensaje_e" style='color:red;'>
+          <h4></h4>
+        </div>
+        <h2>Nueva Habilidad.</h2>
+
+
+        <fieldset>
+          <legend>Datos:</legend>
+
+          <div class="form-group" class="col-lg-9">
+            <label for="nombre" class="col-sm-2 col-form-label">Nombre<span class="required-asterisk">*</span></label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" maxlength="100"
+              pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{3,23}" title="Debe indicar el nombre correctamente" required />
+          </div>
+        
+
+          <div class="form-group col-lg-6">
+            <label for="porcentaje" class="col-md col-form-label">Porcentaje<span class="required-asterisk">*</span></label>
+            <input type="number" min="1" max=100 step="1" class="form-control" id="porcentaje" name="porcentaje" [(ngModel)]="porcentaje" 
+                   title="Debe indicar porcentaje" required (input)="validarporc()" />
+            <div class="error" [ngClass]="{'has-error': !porcentajeValido}">
+              <span *ngIf="!porcentajeValido">El porcentaje debes estar entre 1 a 100.</span>
+            </div>
+          </div>
+        
+
+        </fieldset>
+
+            <div class="form-group" class="col-lg-4">
+              <button type="submit" name="envio" class="btn btn-md btn-warning">Enviar</button>
+              <button type="submit" class="btn btn-md btn-dark" routerLink="/inicio">Cancelar</button>
+            </div>
+    
+      </form>
+    </div>
+  </div>
+
+

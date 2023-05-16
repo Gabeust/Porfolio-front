@@ -1,0 +1,22 @@
+#certi{
+    box-shadow: 0px -2px 10px -3px;
+}
+div {
+    padding: 5px;
+    
+}
+
+@media screen and (max-width:720px) {
+    div {
+        width: 100%;
+
+    }
+}
+
+h3{
+    font-size: large;
+    
+}
+button {
+    float: right;
+}

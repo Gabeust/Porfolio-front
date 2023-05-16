@@ -1,0 +1,95 @@
+<app-paraform></app-paraform>
+<div>
+  <div id="form-main">
+  <div id="form-div">
+
+<form  (ngSubmit)="onCreate()" novalidate #f="ngForm"> 
+  
+<div id="mensaje" style='color:blue;'><h4></h4></div>
+<div id="mensaje_e" style='color:red;'><h4></h4></div>
+				<h2>Nuevo Usuario</h2>
+  
+<div class="row">
+  <div class="col-lg-9">
+<div class="form-group">
+<label for="nya">Nombre y Apellido <span class="required-asterisk">*</span></label>
+<input type="text" class="form-control" name="nya" id="nya" [(ngModel)]="nombre" maxlength="50" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{3,23}" title="Debe indicar su nombre correctamente" required/>
+</div>
+</div>
+</div>
+ 
+<div class="row">
+  <div class="col-lg-6">
+  <div class="form-group">
+    <label for="correo">Correo Electrónico <span class="required-asterisk">*</span></label>
+    <input type="email" class="form-control" name="correo" id="correo" [(ngModel)]="email" required  placeholder="Ej: usuario@dominio.com" maxlength="100" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Debe indicar un correo válido" required />
+  
+</div>
+</div>
+</div>
+
+
+
+<fieldset> 
+<legend>Datos de Acceso al Sistema</legend>
+
+<div class="row">
+<div class="col-lg-4">
+<div class="form-group">
+<label for="usuario">Usuario <span class="required-asterisk">*</span></label>
+<input type="text" class="form-control" name="usuario" id="usuario" [(ngModel)]="nombreUsuario" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-4">
+<div class="form-group">
+<label for="pass">Password <span class="required-asterisk">*</span></label>
+    <input type="password" class="form-control" name="pass" id="pass"  [(ngModel)]="password" required />
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-4">
+<div class="form-group">
+
+<label for="roles">Rol <span class="required-asterisk">*</span></label>
+<input type="text" class="form-control" name="roles" id="roles"   [(ngModel)]="roles" required/>
+</div>
+</div>
+</div>
+  
+  <div class="row">
+    <div class="checkbox col-lg-8">
+      <label style="font-weight:bold;">
+        <input type="checkbox" name="acepto[]" id="acepto"> Acepto los Terminos y Condiciones
+      </label>
+    </div>
+  </div>
+  
+  
+</fieldset>
+  
+<div class="row">
+<div class="col-lg-4">
+<div class="form-group">
+<button type="submit" name="envio" class="btn btn-md btn-warning">Enviar</button>
+
+<button type="submit" class="btn btn-md btn-dark" routerLink="/inicio" >Cancelar</button>
+</div>
+</div>
+</div>
+
+</form>
+  </div>
+</div>
+
+
+    
+
+</div>
+  
+
+

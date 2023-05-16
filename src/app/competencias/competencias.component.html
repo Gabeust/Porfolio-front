@@ -1,0 +1,36 @@
+<div id="princ">
+  <h2>COMPETENCIAS PROFESIONALES.</h2>
+ 
+</div>
+  <div>
+    <button type="button" class="btn btn-success" routerLink="/nuevacomp" *ngIf="isLogged">
+      Nueva Competencia
+    </button>
+  </div>
+  <br>
+  <br>
+  <div *ngFor="let competencias of competencias">
+    <button type="button" class="btn btn-danger" (click)="Delete(competencias.id)" *ngIf="isLogged">
+      <i class="fa-solid fa-trash"></i>
+    </button>
+    <button type="button" class="btn btn-primary" routerLink="/editcomp/{{competencias.id}}" *ngIf="isLogged">
+      <i class="fa-regular fa-pen-to-square"></i>
+    </button>
+
+    <span>
+      <strong>{{competencias.nombre}} </strong>
+    </span>
+    <br>
+
+    <div class="progress-box-shadow" style="height: 30px">
+      <div class="progress-bar progress-bar-striped" role="" aria-label=""
+        [ngStyle]="colorPorcentaje(competencias.porcentaje)" [style.width.%]="competencias.porcentaje" aria-valuemin="0"
+        aria-valuemax="100">
+        <strong> {{competencias.porcentaje}}%</strong>
+
+      </div>
+      <br>
+
+
+    </div>
+  </div>

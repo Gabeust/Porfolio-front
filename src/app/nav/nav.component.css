@@ -1,0 +1,27 @@
+
+.hero {
+    
+    background-image: url(https://tec.mx/sites/default/files/styles/header_full/public/2018-11/Programer.jpg?itok=Ao4hCY2b);
+    background-size: cover;
+    height: 400px;
+ 
+ 
+
+}
+.contenido-hero{    
+    background-color: #131111b3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+.contenido-hero p {
+    color: var(--blanco);
+}
+div{
+    color: white;
+}

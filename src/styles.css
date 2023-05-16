@@ -1,1 +1,206 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  width: 100%;
+
+}
+
+.bot {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color: #fff;
+}
+
+.switch {
+  background: #343d5b;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+}
+
+.switch.active {
+  background: orange;
+  color: #000;
+}
+
+.switch ::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  transition: .3s ease all;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2);
+
+}
+
+.switch.active ::after {
+  right: 0;
+  left: unset;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-family: sans-serif;
+  background: #BBD2C5;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #536976, #BBD2C5);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #536976, #BBD2C5);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  min-height: 100vh;
+
+}
+
+body.dark {
+  background: #242323;
+  transition: .3s ease all;
+}
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark p,
+body.dark li,
+body.dark span {
+   color: #dad8d8;
+}
+
+body.dark aside {
+  background-color: #2e2c2c;
+}
+
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #dddddd;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2396d8;
+}
+
+h1 {
+  
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: black;
+  font-size: xx-large;
+  text-align: center;
+
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+html {
+   
+    background-color: #130704;
+}
+
+
+#feedback-page {
+    text-align: center;
+}
+
+#form-main {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 80%;
+    align-items: center;
+    padding-top: 0px;
+}
+
+#form-div {
+    background-color: #EBEBEB;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 35px;
+    padding-bottom: 50px;
+    width: 600px;
+    margin-top: 30px;
+    margin-left: 20px;
+
+}
+
+.required-asterisk {
+    color: #f00;
+}
+
+fieldset {
+    clear: both;
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid #d3d3d3;
+    border-radius: 3px;
+    background-color: #C0C0C0;
+}
+
+legend {
+    color: chocolate;
+    padding-top: 12px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize: vertical;
+}
+
+input:hover,
+textarea:hover,
+input:focus,
+textarea:focus {
+    background-color: white;
+}
+
+.ease {
+    width: 0px;
+    height: 74px;
+    background-color: #fbfbfb;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -o-transition: .3s ease;
+    -ms-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.submit:hover .ease {
+    width: 50%;
+    background-color: #0CF;
+}
+
+@media only screen and (max-width: 580px) {
+    #form-div {
+        left: 3%;
+        margin-right: 3%;
+        width: 88%;
+        margin-left: 0;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+}

@@ -1,0 +1,53 @@
+<app-paraform></app-paraform>
+
+<div class="wrapper">
+    <div class="container">
+      <div class="col-left">
+        <div class="login-text">
+          <h3>Bienvenido</h3>
+          <p>¿No tenes una cuenta.?</p>
+          <a class="btn" routerLink="/nuevouser">Crear cuenta</a>
+        </div>
+      </div>
+      <div class="col-right">
+        <div class="login-form">
+          <h2>ACCESO</h2>
+          <form [formGroup]="form" ngForm (ngSubmit)="onLogin()" novalidate>
+               <label class="form-label" for="nombreUsuario">Nombre de usuario<span>*</span></label>
+              <input type="text" id="nombreUsuario" formControlName="nombreUsuario"
+              [ngClass]="{'is-invalid': NombreUsuario?.errors && NombreUsuario?.touched, 'is-valid': !NombreUsuario?.errors && NombreUsuario?.touched}"
+               class="form-control form-control-lg" placeholder="Usuario"  
+               [(ngModel)]="nombreUsuario" required />
+              <div *ngIf="NombreUsuario?.errors && NombreUsuario?.touched" >
+                <p *ngIf="NombreUsuario?.hasError('required')" class="text-danger">
+                    Nombre de usuario requerido.
+                </p>    
+                <p *ngIf="NombreUsuario?.hasError('text')" class="text-danger">
+                     El formato debe ser válido.
+                </p>          
+              </div> 
+          
+              <label class="form-label" for="password">Contraseña<span>*</span></label>
+              <input type="password" id="password" formControlName="password" 
+              [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is-valid': !Password?.errors && Password?.touched}"
+
+              class="form-control form-control-lg"  placeholder="Contraseña" [(ngModel)]="password" required="Clave erronea" >
+              <div *ngIf="Password?.errors && Password?.touched" >
+                <p *ngIf="Password?.hasError('required')" class="text-danger">
+                    Contraseña requerida.
+                </p>    
+                <p *ngIf="Password?.errors?.['minlength']" class="text-danger">
+                     La Contraseña debe tener 5 caracteres como minimo.
+                </p>          
+              </div> 
+                       
+           
+              <input type="Submit" value="ingresar" /> 
+            
+            <div class="alert alert-danger" *ngIf="isLogginFail">
+              El nombre de usuario o la contraseña son incorrectos. Por favor, inténtalo de nuevo.
+            </div>
+          </form>
+        </div>
+      </div>
+   

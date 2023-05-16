@@ -1,0 +1,73 @@
+<div id="CONT">
+  <h2>CONTACTO</h2>
+</div>
+
+<div class="row">
+  <div class="col-lg-5">
+    <div class="form-group">
+      <div class="form">
+        <form method="POST" action="https://formspree.io/f/xzbqolpd" id="formcont" [formGroup]="formulario" (submit)="enviarFormulario()">
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" formControlName="nombre" maxlength="50"  [(ngModel)]="nombre" >
+           
+            <div *ngIf="formulario.get('nombre').errors?.pattern && formulario.get('nombre').touched">El nombre debe tener entre 3 y 23 letras</div>
+          </div>
+
+          <div class="input-field">
+            <i class="fas fa-mobile-alt"></i>
+            <label for="telefono">Teléfono</label>
+            <input type="telf" name="telefono" formControlName="telefono" maxlength="11"  [(ngModel)]="telefono">
+            
+            <div *ngIf="formulario.get('telefono').errors?.pattern && formulario.get('telefono').touched">El teléfono debe ser válido</div>
+          </div>
+
+          <div class="input-field">
+            <i class="fas fa-at"></i>
+            <label for="email">Email</label>
+            <input type="email" name="email" formControlName="email" maxlength="100"  [(ngModel)]="email">
+            
+            <div *ngIf="formulario.get('email').errors?.email && formulario.get('email').touched">El email debe ser válido</div>
+          </div>
+
+          <div class="input-field">
+            <i class="fas fa-pen"></i>
+            <label for="mensaje">Mensaje</label>
+            <textarea name="mensaje" formControlName="mensaje" rows="10" maxlength="15000"  [(ngModel)]="mensaje"></textarea>
+            
+            <div *ngIf="formulario.get('mensaje').errors?.maxlength && formulario.get('mensaje').touched">El mensaje debe tener menos de 140 caracteres</div>
+          </div>
+
+
+          <div class="btn-block">
+            <button class="btn" type="submit" [disabled]="enviado"><i class="fas fa-paper-plane"></i>ENVIAR</button>
+          </div>
+          <div *ngIf="enviadoExitoso" class="alert alert-success">
+            <p>Su mensaje ha sido enviado. ¡Gracias por contactarnos!</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="a" class="col-lg-6">
+    <div class="social-networks">
+      <h4 class="text-center"> Si necesitas contactarme, no dudes en hacerlo. Puedes escribirme un correo electrónico,
+        llamarme o enviarme un mensaje a través de las redes sociales. Estaré encantado de responder tus preguntas,
+        escuchar tus comentarios o ayudarte en lo que necesites.
+        Además, si te gusta mi trabajo y quieres seguirme en las redes sociales, puedes hacerlo aquí abajo. ¡Será un
+        placer compartir contigo todo lo que hago y estar en contacto!</h4>
+      <div class="social-btn-container">
+        <a href="https://www.facebook.com/gabriel.romero.9659?mibextid=LQQJ4d"><span class="social-btn"><i
+              class="fa fa-fw fa-facebook"></i></span></a>
+        <a href="https://twitter.com/Gabriel93814304"><span class="social-btn"><i
+              class="fa fa-fw fa-twitter"></i></span></a>
+        <a href="https://www.linkedin.com/in/gabriel-eustaquio-romero"><span class="social-btn"><i
+              class="fa fa-fw fa-linkedin"></i></span></a>
+        <a href="https://github.com/Gabeust"><span class="social-btn"><i class="fa fa-fw fa-github"></i></span></a>
+      </div>
+    </div>
+  </div>
+</div>

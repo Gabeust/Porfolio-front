@@ -1,0 +1,59 @@
+<app-paraform></app-paraform>
+<div *ngIf="proyectos">
+  <div id="form-main">
+    <div id="form-div">
+
+      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+
+        <div id="mensaje" style='color:blue;'>
+          <h4></h4>
+        </div>
+        <div id="mensaje_e" style='color:red;'>
+          <h4></h4>
+        </div>
+        <h2>Nuevo proyecto.</h2>
+
+
+        <fieldset>
+          <legend>Datos:</legend>
+
+          <div class="form-group col-lg-9">
+            <label for="nombre" class="col-sm-2 col-form-label">Nombre<span class="required-asterisk">*</span></label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="proyectos.nombre"
+              maxlength="100" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{3,23}" required />
+
+          </div>
+
+
+          <div class="form-group col-lg-9">
+            <label for="descripcion" class="col-md-10 col-form-label">Despcripcion<span
+                class="required-asterisk">*</span></label>
+            <textarea name="descripcion" rows="10" maxlength="10000" [(ngModel)]="proyectos.descripcion"
+              required></textarea>
+
+          </div>
+          
+          <div class="form-group col-lg-9">
+            <label for="img" class="col-sm-6 col-form-label">Imagen del proyecto <span class="required-asterisk">*</span></label>
+            <input type="file" class="form-control" id="img" name="img" [(ngModel)]="proyectos.img" 
+            (change)="uploadImage($event)" accept=".jpeg, .jpg, .png"/>          
+          </div>
+
+          <div class="form-group col-lg-9">
+            <label for="url" class="col-md-10 col-form-label">URL del proyecto <span
+                class="required-asterisk">*</span></label>
+            <input type="text" [(ngModel)]="proyectos.url" required>
+          </div>
+
+
+        </fieldset>
+
+        <div class="form-group" class="col-lg-4">
+          <button type="submit" name="envio" class="btn btn-md btn-warning">Enviar</button>
+
+          <button type="submit" class="btn btn-md btn-dark" routerLink="/inicio">Cancelar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
